@@ -25,7 +25,7 @@ SECRET_KEY = 'ix&j*_mvfpwc(&pbdsp77!8z9@_9hcn1$-iokpg9p&_p%u-!!d'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['http://www.prerest.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['prerest.herokuapp.com', '127.0.0.1']
 
 # Application definition
 
