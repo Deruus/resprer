@@ -31,7 +31,7 @@ ALLOWED_HOSTS = ['prerest.herokuapp.com']
 # Application definition
 
 INSTALLED_APPS = [
-    'rest',
+    'rest.app.RestConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
