@@ -25,13 +25,13 @@ SECRET_KEY = 'ix&j*_mvfpwc(&pbdsp77!8z9@_9hcn1$-iokpg9p&_p%u-!!d'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['prerest.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
 
 INSTALLED_APPS = [
-    'rest.app.RestConfig',
+    'rest.apps.RestConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -116,21 +116,18 @@ USE_L10N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/2.2/howto/static-files/
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.11/howto/static-files/
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_TMP = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 
-# Extra lookup directories for collectstatic to find static files
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
+os.makedirs(STATIC_TMP, exist_ok=True)
+os.makedirs(STATIC_ROOT, exist_ok=True)
 
-#  Add configuration for static files storage using whitenoise
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+STATICFILES_DIRS = (
+os.path.join(BASE_DIR, 'static'),
+)
 
 import dj_database_url
 prod_db = dj_database_url.config(conn_max_age=500)
